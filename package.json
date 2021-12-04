@@ -1,0 +1,43 @@
+{
+  "name": "firebase-vite-app",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "env-cmd --file .env vite",
+    "build": "tsc && env-cmd --file .env vite build",
+    "serve": "vite preview",
+    "lint": "pnpm lint:cc && pnpm lint:es && pnpm lint:ts",
+    "lint:fix": "pnpm lint:es -- --fix",
+    "lint:es": "eslint --ext .ts,.tsx src --max-warnings 0",
+    "lint:ts": "tsc",
+    "lint:cc": "madge -c --extensions ts,tsx --ts-config tsconfig.json --no-spinner src/",
+    "test": "jest --color --coverage --passWithNoTests"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@sucrase/jest-plugin": "^2.2.0",
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.11",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "@vitejs/plugin-react-refresh": "^1.3.6",
+    "env-cmd": "^10.1.0",
+    "eslint": "^8.4.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "jest": "^27.4.3",
+    "madge": "^5.0.1",
+    "prettier": "^2.5.1",
+    "sass": "^1.44.0",
+    "typescript": "^4.5.2",
+    "vite": "^2.6.14"
+  }
+}
