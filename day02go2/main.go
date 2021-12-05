@@ -1,10 +1,11 @@
 package main
 
 import (
-	"advents2021/util"
 	"fmt"
 	"strconv"
 	"strings"
+
+	"advents2021/util"
 )
 
 func main() {

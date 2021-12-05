@@ -1,8 +1,9 @@
 package main
 
 import (
-	"advents2021/util"
 	"fmt"
+
+	"advents2021/util"
 )
 
 func main() {

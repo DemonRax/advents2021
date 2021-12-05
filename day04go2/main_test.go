@@ -1,8 +1,9 @@
 package main
 
 import (
-	"advents2021/util"
 	"testing"
+
+	"advents2021/util"
 )
 
 func Test_code(t *testing.T) {
