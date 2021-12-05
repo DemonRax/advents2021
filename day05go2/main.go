@@ -31,13 +31,7 @@ func scan(vectors []vector, size coord) int {
 				}
 			}
 		} else {
-			mul := coord{x: 1, y: 1}
-			if v.start.x > v.end.x {
-				mul.x = -1
-			}
-			if v.start.y > v.end.y {
-				mul.y = -1
-			}
+			mul := v.mul()
 			c := v.start
 			for {
 				if field[c.x][c.y] == 1 {
@@ -53,6 +47,17 @@ func scan(vectors []vector, size coord) int {
 		}
 	}
 	return count
+}
+
+func (v vector) mul() coord {
+	mul := coord{x: 1, y: 1}
+	if v.start.x > v.end.x {
+		mul.x = -1
+	}
+	if v.start.y > v.end.y {
+		mul.y = -1
+	}
+	return mul
 }
 
 func parseVectors(ss []string) ([]vector, coord) {
