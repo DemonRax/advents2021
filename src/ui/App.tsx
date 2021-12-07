@@ -1,3 +1,9 @@
 import React from 'react';
 
-export const App: React.VFC = () => <div>test</div>;
+import { Day01 } from './Day01';
+
+export const App: React.VFC = () => (
+    <div>
+        <Day01 />
+    </div>
+);

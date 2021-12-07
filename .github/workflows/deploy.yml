@@ -1,0 +1,38 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Setup env
+        run: |
+          cat << EOF > .env
+          REACT_APP_FIREBASE_DOMAIN="code-advents.firebaseapp.com"
+          REACT_APP_FIREBASE_DATABASE="https://code-advents-default-rtdb.europe-west1.firebasedatabase.app"
+          REACT_APP_FIREBASE_PROJECT_ID="code-advents"
+          REACT_APP_FIREBASE_STORAGE_BUCKET="code-advents.appspot.com"
+          REACT_APP_FIREBASE_SENDER_ID="827509094638"
+          REACT_APP_FIREBASE_APP_ID="1:827509094638:web:6a0d37e15cd49436381bff"
+          REACT_APP_FIREBASE_LOCATION_ID="europe-west"
+          REACT_APP_FIREBASE_KEY=${{ secrets.FIREBASE_KEY }}
+          EOF
+      - name: Build
+        run: pnpm run build
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          REACT_APP_FIREBASE_KEY: ${{ secrets.FIREBASE_KEY }}

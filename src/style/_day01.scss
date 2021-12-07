@@ -1,0 +1,66 @@
+@use 'submarine';
+
+.day01 {
+  &__top {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__bottom__container {
+    position: absolute;
+    left: 50px;
+    width: 300px;
+    height: 60px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__bottom__container::after{
+    content: '';
+    position: absolute;
+    left: 110px;
+    box-shadow: 0 0 5px 2px hsla(130, 40%, 40%, 90%);
+    width: 95px;
+    height: 40px;
+  }
+
+  &__bottom__track {
+    margin: 0;
+    list-style: none;
+    height: 100%;
+    width: 20%;
+    transition: transform 100ms ease-in;
+  }
+
+  &__bottom__number {
+    font-size: xx-large;
+    position: absolute;
+  }
+
+  &__control {
+    margin: 20px 0;
+  }
+
+  &__button {
+    font-weight: bold;
+    padding: 10px;
+    text-shadow: 0 0 3px hsla(130, 40%, 40%);
+    cursor: pointer;
+  }
+
+  &__button:hover {
+    text-shadow: 0 0 3px hsla(130, 90%, 40%);
+  }
+
+  &__button::selection {
+    background-color: Transparent;
+  }
+
+  &__status {
+    margin-top: 100px;
+    padding: 20px;
+    font-size: xx-large;
+  }
+}
