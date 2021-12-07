@@ -6,6 +6,7 @@ import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import submarine from '../assets/submarine.jpg';
 import { useDay01 } from './Day01Logic';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const testData = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
 
 export const Day01: React.VFC = () => {
